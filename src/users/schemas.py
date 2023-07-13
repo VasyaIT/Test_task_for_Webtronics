@@ -19,3 +19,9 @@ class UserReadUpdate(BaseModel):
 
 class UserCreate(BaseUser):
     password: str
+
+
+class UserPasswordChange(BaseModel):
+    old_password: str
+    new_password: str
+    new_password_confirm: str

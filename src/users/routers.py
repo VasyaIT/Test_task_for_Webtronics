@@ -8,7 +8,7 @@ from src.services import get_objects, update_user, get_object_by_username
 from .authentication import auth_backend
 from .manager import get_user_manager
 from .models import User
-from .schemas import UserReadUpdate
+from .schemas import UserReadUpdate, UserPasswordChange
 
 fastapi_users = FastAPIUsers[User, int](
     get_user_manager,
@@ -50,3 +50,12 @@ async def user_account(username: str):
     if not user:
         raise HTTPException(status.HTTP_404_NOT_FOUND)
     return user
+
+
+@user_router.post('/change_password')
+async def password_change(
+        data: UserPasswordChange,
+        user: User = Depends(get_user_or_401),
+        user_manager=Depends(get_user_manager)
+):
+    return await user_manager.check_password(data, user)
