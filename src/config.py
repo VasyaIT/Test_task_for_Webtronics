@@ -6,7 +6,7 @@ load_dotenv()
 
 SECRET_KEY = environ.get('SECRET_KEY')
 
-# DataBase
+# Database
 DB_ENGINE = environ.get('DB_ENGINE')
 DB_HOST = environ.get('DB_HOST')
 DB_PORT = environ.get('DB_PORT')
@@ -14,16 +14,18 @@ DB_NAME = environ.get('DB_NAME')
 DB_USER = environ.get('DB_USER')
 DB_PASSWORD = environ.get('DB_PASSWORD')
 
+# Test database
+DB_ENGINE_TEST = environ.get('DB_ENGINE_TEST')
+DB_HOST_TEST = environ.get("DB_HOST_TEST")
+DB_PORT_TEST = environ.get("DB_PORT_TEST")
+DB_NAME_TEST = environ.get("DB_NAME_TEST")
+DB_USER_TEST = environ.get("DB_USER_TEST")
+DB_PASSWORD_TEST = environ.get("DB_PASSWORD_TEST")
+
 # Auth
 JWT_LIFETIME = 10 * 60
 COOKIE_NAME = 'JWT'
 TOKEN_AUDIENCE = environ.get('TOKEN_AUDIENCE')
-VERIFICATION_TOKEN = environ.get('VERIFICATION_TOKEN')
-VERIFICATION_TOKEN_LIFETIME = 5 * 60
-VERIFICATION_TOKEN_AUDIENCE = environ.get('VERIFICATION_TOKEN_AUDIENCE')
-RESET_PASSWORD_TOKEN = environ.get('RESET_PASSWORD_TOKEN')
-RESET_PASSWORD_TOKEN_LIFETIME = 5 * 60
-RESET_PASSWORD_TOKEN_AUDIENCE = environ.get('RESET_PASSWORD_TOKEN_AUDIENCE')
 
 # REDIS
 REDIS_HOST = environ.get('REDIS_HOST')
